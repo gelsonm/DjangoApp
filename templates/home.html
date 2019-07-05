@@ -1,0 +1,55 @@
+{% extends "base/base.html" %}
+{% load static %}
+{% block content %}
+
+{% if messages %}
+    {% for message in messages %} 
+    <div class="alert alert-warning" role="alert">
+            {{ message }}!
+    </div>
+        
+    {% endfor %}
+{% endif %}
+
+{% include "testpage.html" %}
+
+<div class="container">
+    <form action="" method="POST" class="mt-4">
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type="submit" value="Search" class="btn btn-info">
+    </form>
+</div>
+<br>
+
+<div class="container">
+    
+    {% if result %}
+        <table class="table">
+            <thead class="thead-dark"></thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Student Name</th>
+                <th scope="col">Department</th>
+                <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tbody>
+                {% for r in result %}
+                <tr>
+                <th scope="row">{{ r.id }}</th>
+                <td>{{r.student_name}}</td>
+                <td>{{r.department}}</td>
+                <td>
+                    <a href="edit-student/{{ r.id }}">Edit </a>
+                    <a href="delete-student/{{ r.id }}">Delete</a>
+                </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% endif %}
+</div>
+
+{% endblock %}
