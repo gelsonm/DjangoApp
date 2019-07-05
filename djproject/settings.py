@@ -25,7 +25,7 @@ SECRET_KEY = '%g$6t(^z%=!@(hb89l%7d(&a)5hw(%m32xf5p1kq(&pk#_6+6x'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['gentle-brook-58974.herokuapp.com']
 
 
 # Application definition
